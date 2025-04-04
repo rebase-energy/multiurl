@@ -482,6 +482,7 @@ def robust(call, maximum_tries=500, retry_after=120, mirrors=None):
             except (
                 requests.exceptions.ConnectionError,
                 requests.exceptions.ReadTimeout,
+                AssertionError,
             ) as e:
                 r = None
                 LOG.warning(
